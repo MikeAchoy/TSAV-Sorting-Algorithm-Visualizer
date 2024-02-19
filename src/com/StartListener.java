@@ -11,7 +11,7 @@ public class StartListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Start clicked");
         this.visualizerPanelRef.startAlgorithm(Algorithms.sortingAlgorithms.BubbleSort);
+        return;
     } 
 }

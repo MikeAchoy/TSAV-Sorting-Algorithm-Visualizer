@@ -17,6 +17,7 @@ public class SpeedListener implements ChangeListener{
         // TODO Auto-generated method stub
         int newSpeedSet = this.inputPanelRef.getSpeedSet();
         this.visualizerPanelRef.setAlgorithmSpeed(newSpeedSet);
+        return;
     }
     
 }

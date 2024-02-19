@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 
 public class VisualizerPanel extends JPanel {
-
+    
   private Algorithms algs;
   private int[] visualizerArray;
   private int[] displayedVisualizerArray;
@@ -53,8 +53,6 @@ public class VisualizerPanel extends JPanel {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     this.revalidate();
-
-    System.out.println("R");
 
     // Set visualizer Color.
     g.setColor(Color.BLACK);
@@ -102,9 +100,7 @@ public class VisualizerPanel extends JPanel {
     for (int i : visArrayInst) {
       drawVisualizerRect(g, xDisplayDelta, i, roundedBlockDisplacement);
       xDisplayDelta += roundedBlockDisplacement;
-      System.out.println("VIS");
     }
-    System.out.println("END");
   }
 
   public void scaleArray(int[] arrayToDisplay) {
@@ -160,7 +156,7 @@ public class VisualizerPanel extends JPanel {
     int[] randomArray = new int[arraySize];
 
     // Initialize the array with sequential numbers
-    for (int i = 1; i < arraySize; i++) {
+    for (int i = 0; i < arraySize; i++) {
       randomArray[i] = i;
     }
 

@@ -15,5 +15,6 @@ public class GenerateListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         int arraySizeToSet = this.inputPanelRef.getArraySizeSet();
         this.visualizerPanelRef.setVisualizerArray(this.visualizerPanelRef.returnRandomArraySet(arraySizeToSet)); 
+        return;
     }
 }
