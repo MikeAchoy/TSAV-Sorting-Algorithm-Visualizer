@@ -1,0 +1,26 @@
+
+
+Fix visualizer bounds and find what bounds to use and limits to use, get multiplier working for small numbers.
+
+Window: (Main Housing)
+
+500 |       |
+     _______
+     600
+
+
+Control Panel (GUI interface):
+
+50  |      |
+     _______
+     600
+
+Visualizer Panel (Sorting Visualizer):
+
+400 |      |
+     _______
+     600
+
+
+TODO: Implement logic for arraySizeSlider couple with textfield.
+     
