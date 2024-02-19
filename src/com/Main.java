@@ -19,6 +19,7 @@ public class Main{
         });
          */
 
+        // TODO: Add more sorting algorithms to the project.
         Window window = new Window();
         window.setWindowVisible(true);
         

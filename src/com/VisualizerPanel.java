@@ -21,8 +21,6 @@ public class VisualizerPanel extends JPanel {
 
     algs = new Algorithms(this);
 
-    // Set array to sort.
-    // TODO: Set oroingal array copy to visualizer, but set the scaled array.
     this.revalidate();
     this.repaint();
   }
@@ -52,9 +50,8 @@ public class VisualizerPanel extends JPanel {
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
+    // Repaint (update) visualizer
     this.revalidate();
-
-    // Set visualizer Color.
     g.setColor(Color.BLACK);
 
     // Scale array every repaint of graphics.
@@ -64,9 +61,6 @@ public class VisualizerPanel extends JPanel {
       // scale.
     }
 
-    // Repaint (update) visualizer
-    // GUI input issue appears when not visualizerArray in this param.
-    // TODO: Try to draw init scaled array first instead of unscaled array.
     if (this.canVisualize) {
       visualizeArray(g, displayedVisualizerArray);
     }

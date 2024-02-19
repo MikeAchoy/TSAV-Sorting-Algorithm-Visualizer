@@ -8,8 +8,6 @@ import javax.swing.border.Border;
 
 public class Window extends JFrame{
     // Window class GUI elements.
-    // TODO: Add algorithm control GUI objects (make GUI complete)
-    
     private InputPanel inputPanel;
     private VisualizerPanel visualizerPanel;
 

@@ -17,14 +17,17 @@ public class InputPanel extends JPanel {
    private JButton generateArrayButton;
    private JButton startVisualizationButton;
    private JComboBox algorithmSelectionBox;
+   
    VisualizerPanel visualizerPanelRef;
    Window windowRef;
 
-   public InputPanel(VisualizerPanel var1, Window var2) {
+   public InputPanel(VisualizerPanel visualizerPanelRefToSet, Window windowRefToSet) {
       this.setPreferredSize(new Dimension(600, 80));
       this.setBackground(Color.WHITE);
-      this.visualizerPanelRef = var1;
-      this.windowRef = var2;
+
+      this.visualizerPanelRef = visualizerPanelRefToSet;
+      this.windowRef = windowRefToSet;
+
       this.generateArrayButton = new JButton();
       this.speedLabel = new JLabel();
       this.speedSlider = new JSlider(1, 200, 50);
@@ -33,17 +36,20 @@ public class InputPanel extends JPanel {
       this.arraySizeField = new JTextField();
       this.startVisualizationButton = new JButton();
       this.algorithmSelectionBox = new JComboBox(Algorithms.getAvailableAlgorithms());
+
       this.generateArrayButton.setText("Generate");
       this.speedLabel.setText("Speed: ");
       this.speedSlider.setInverted(true);
       this.arraySizeLabel.setText("Size: ");
       this.arraySizeField.setText("50");
       this.startVisualizationButton.setText("Start");
+
       this.speedSlider.addChangeListener(new SpeedListener(this, this.visualizerPanelRef));
       this.generateArrayButton.addActionListener(new GenerateListener(this.visualizerPanelRef, this));
       this.startVisualizationButton.addActionListener(new StartListener(this.visualizerPanelRef));
       this.arraySizeSlider.addChangeListener(new SizeListener(this));
       this.arraySizeField.addActionListener(new SizeFieldListener(this));
+
       this.add(this.generateArrayButton);
       this.add(this.arraySizeLabel);
       this.add(this.arraySizeSlider);
