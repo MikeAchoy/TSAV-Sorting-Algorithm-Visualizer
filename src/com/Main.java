@@ -2,8 +2,8 @@
 import java.util.concurrent.TimeUnit;
 //import javax.swing.SwingUtilities;
 
-public class Main  
-  blic static void main(String[] args) {
+public class Main{  
+  public static void main(String[] args) {
     /*
      * SwingUtilities.invokeLater(() -> {
      * Window window = new Window();

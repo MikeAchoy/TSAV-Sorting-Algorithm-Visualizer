@@ -5,7 +5,8 @@ import java.util.concurrent.TimeUnit;
 public class Algorithms {
     // Enum containing algorithms sorted by type of algorithm.
     public enum sortingAlgorithms{
-        BubbleSort
+        BubbleSort,
+        QuickSort
     };
 
     private int algorithmSpeedMS;
@@ -26,6 +27,7 @@ public class Algorithms {
     public static Vector<sortingAlgorithms> getAvailableAlgorithms(){
         Vector<sortingAlgorithms> algorithmsVector = new Vector<>();
         algorithmsVector.add(sortingAlgorithms.BubbleSort);
+        algorithmsVector.add(sortingAlgorithms.QuickSort);
         return algorithmsVector;
     }
 
