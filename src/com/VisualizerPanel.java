@@ -13,6 +13,7 @@ public class VisualizerPanel extends JPanel {
   private int[] displayedVisualizerArray;
   private boolean canScale;
   private boolean canVisualize;
+  private Algorithms.sortingAlgorithms sortingAlgorithmToVisualize;
 
   public VisualizerPanel() {
     this.setPreferredSize(new Dimension(600, 400));
@@ -129,11 +130,22 @@ public class VisualizerPanel extends JPanel {
 
   public void startAlgorithm(Algorithms.sortingAlgorithms algorithmToUse) {
     this.setScaleStatus(true);
-    if (algorithmToUse == Algorithms.sortingAlgorithms.BubbleSort) {
+    if (algorithmToUse.equals(Algorithms.sortingAlgorithms.BubbleSort)) {
       SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
         @Override
         protected Void doInBackground() throws Exception {
-          algs.BubbleSort(visualizerArray);
+          algs.bubbleSort(visualizerArray);
+          return null;
+        }
+      };
+      worker.execute();
+    }
+    if (algorithmToUse.equals(Algorithms.sortingAlgorithms.QuickSort)) {
+      SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+        @Override
+        protected Void doInBackground() throws Exception {
+          int endingIndex = visualizerArray.length - 1;
+          algs.quickSort(visualizerArray, 0, endingIndex);
           return null;
         }
       };
@@ -165,5 +177,13 @@ public class VisualizerPanel extends JPanel {
       randomArray[j] = temp;
     }
     return randomArray;
+  }
+
+  public Algorithms.sortingAlgorithms getSortingAlgorithm(){
+    return this.sortingAlgorithmToVisualize;
+  }
+
+  public void setSortingAlgorithm(Algorithms.sortingAlgorithms sortingAlgorithmToSet){
+    this.sortingAlgorithmToVisualize = sortingAlgorithmToSet;
   }
 }

@@ -31,7 +31,7 @@ public class Algorithms {
         return algorithmsVector;
     }
 
-    public void BubbleSort(int[] arrayToSort){
+    public void bubbleSort(int[] arrayToSort){
         // Get array size.
         int arraySize = arrayToSort.length;
         boolean swapPerformed;
@@ -51,10 +51,9 @@ public class Algorithms {
                     // TODO: Implement logic to change color of blocks that are getting swapped.
                     panelRef.revalidate();
                     panelRef.repaint();
-                    // This is the repaint that isn't working.
                     
                     try {
-                      TimeUnit.MILLISECONDS.sleep(this.algorithmSpeedMS);
+                      TimeUnit.MILLISECONDS.sleep(this.getAlgorithmSpeed());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -69,17 +68,26 @@ public class Algorithms {
         return;
     }
 
-    static void swap(int[] arr, int i, int j){
+    static void swap(int[] arr, int i, int j, VisualizerPanel panelRef, Algorithms algorithmsRef){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+
+        panelRef.revalidate();
+        panelRef.repaint();
+                
+        try {
+          TimeUnit.MILLISECONDS.sleep(algorithmsRef.getAlgorithmSpeed());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
  
     // This function takes last element as pivot,
     // places the pivot element at its correct position
     // in sorted array, and places all smaller to left
     // of pivot and all greater elements to right of pivot
-    static int partition(int[] arr, int low, int high){
+    static int partition(int[] arr, int low, int high, VisualizerPanel panelRef, Algorithms algorithmsRef){
         // Choosing the pivot
         int pivot = arr[high];
  
@@ -94,10 +102,10 @@ public class Algorithms {
  
                 // Increment index of smaller element
                 i++;
-                swap(arr, i, j);
+                swap(arr, i, j, panelRef, algorithmsRef);
             }
         }
-        swap(arr, i + 1, high);
+        swap(arr, i + 1, high, panelRef, algorithmsRef);
         return (i + 1);
     }
  
@@ -110,7 +118,7 @@ public class Algorithms {
  
             // pi is partitioning index, arr[p]
             // is now at right place
-            int pi = partition(arr, low, high);
+            int pi = partition(arr, low, high, panelRef, this);
  
             // Separately sort elements before
             // partition and after partition

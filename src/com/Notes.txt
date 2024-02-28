@@ -2,6 +2,7 @@
 
 Fix visualizer bounds and find what bounds to use and limits to use, get multiplier working for small numbers.
 
+
 Window: (Main Housing)
 
 500 |       |
@@ -14,6 +15,7 @@ Control Panel (GUI interface):
 50  |      |
      _______
      600
+
 
 Visualizer Panel (Sorting Visualizer):
 
@@ -31,3 +33,6 @@ Adding an inplace sorting Algorithm:
 Add code implementaiton in Algorithms.java
 Add Algorithm name in enum
 add Algorithm enum in AlgorithmVector
+edit InputPanel getalgselected
+add branch to execute algorithm in startAlgorithm in VisualizerPanel
+

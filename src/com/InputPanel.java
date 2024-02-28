@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
+
 public class InputPanel extends JPanel {
    private JLabel speedLabel;
    private JSlider speedSlider;
@@ -46,7 +47,7 @@ public class InputPanel extends JPanel {
 
       this.speedSlider.addChangeListener(new SpeedListener(this, this.visualizerPanelRef));
       this.generateArrayButton.addActionListener(new GenerateListener(this.visualizerPanelRef, this));
-      this.startVisualizationButton.addActionListener(new StartListener(this.visualizerPanelRef));
+      this.startVisualizationButton.addActionListener(new StartListener(this.visualizerPanelRef, this));
       this.arraySizeSlider.addChangeListener(new SizeListener(this));
       this.arraySizeField.addActionListener(new SizeFieldListener(this));
 
@@ -78,5 +79,22 @@ public class InputPanel extends JPanel {
 
    public void updateArraySizeSlider(int var1) {
       this.arraySizeSlider.setValue(var1);
+   }
+
+   public Algorithms.sortingAlgorithms getAlgorithmSelected(){
+      String algorithmSelected = this.algorithmSelectionBox.getSelectedItem().toString();
+      Algorithms.sortingAlgorithms sortingAlgorithm = null;
+      switch (algorithmSelected) {
+         case "BubbleSort":
+            sortingAlgorithm = Algorithms.sortingAlgorithms.BubbleSort;
+            break;
+
+         case "QuickSort":
+            sortingAlgorithm = Algorithms.sortingAlgorithms.QuickSort;
+            break;
+         default:
+            break;
+      }
+      return sortingAlgorithm;
    }
 }
