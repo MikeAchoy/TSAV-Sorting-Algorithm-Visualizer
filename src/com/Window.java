@@ -6,45 +6,45 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 
-public class Window extends JFrame{
-    // Window class GUI elements.
-    private InputPanel inputPanel;
-    private VisualizerPanel visualizerPanel;
+public class Window extends JFrame {
+  // Window class GUI elements.
+  private InputPanel inputPanel;
+  private VisualizerPanel visualizerPanel;
 
-    public Window(){
-        final int WINDOW_WIDTH = 600;
-        final int WINDOW_HEIGHT = 500;
-        final String WINDOW_TITLE = "TSAV";
+  public Window() {
+    final int WINDOW_WIDTH = 600;
+    final int WINDOW_HEIGHT = 500;
+    final String WINDOW_TITLE = "Toy Sorting Algorithm Visualizer";
 
-        // Set window init properties.
-        this.setSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
-        this.setTitle(WINDOW_TITLE);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(true);
-        this.setBackground(Color.WHITE);
+    // Set window init properties.
+    this.setSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
+    this.setTitle(WINDOW_TITLE);
+    this.setLocationRelativeTo(null);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setResizable(true);
+    this.setBackground(Color.WHITE);
 
-        // Create visualizer GUi objects.
-        this.visualizerPanel = new VisualizerPanel();
-        this.inputPanel = new InputPanel(this.visualizerPanel, this);
+    // Create visualizer GUi objects.
+    this.visualizerPanel = new VisualizerPanel();
+    this.inputPanel = new InputPanel(this.visualizerPanel, this);
 
-        // Add GUI objects to window.
-        this.getContentPane().add(inputPanel, BorderLayout.NORTH);
-        this.getContentPane().add(visualizerPanel, BorderLayout.CENTER);
+    // Add GUI objects to window.
+    this.getContentPane().add(inputPanel, BorderLayout.NORTH);
+    this.getContentPane().add(visualizerPanel, BorderLayout.CENTER);
+  }
+
+  // Repaint function for visualizerPanel.
+  public void repaintDisplay() {
+    try {
+      TimeUnit.MILLISECONDS.sleep(10);
+      // Do something here
+      visualizerPanel.repaint();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
-    
-    // Repaint function for visualizerPanel.
-    public void repaintDisplay(){
-        try {
-            TimeUnit.MILLISECONDS.sleep(10);
-            // Do something here
-            visualizerPanel.repaint();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+  }
 
-    public void setWindowVisible(boolean setWindowVisible){
-        this.setVisible(setWindowVisible);
-    }
+  public void setWindowVisible(boolean setWindowVisible) {
+    this.setVisible(setWindowVisible);
+  }
 }

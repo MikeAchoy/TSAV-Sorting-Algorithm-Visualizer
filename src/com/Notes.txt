@@ -27,7 +27,6 @@ Visualizer Panel (Sorting Visualizer):
 Project compile command:
 javac Algorithms.java GenerateListener.java InputPanel.java Main.java SizeFieldListener.java SizeListener.java SpeedListener.java StartListener.java VisualizerPanel.java Window.java
 
-
 Adding an inplace sorting Algorithm:
 
 Add code implementaiton in Algorithms.java
