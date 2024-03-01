@@ -2,9 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.concurrent.TimeUnit;
-
 import javax.swing.JFrame;
-import javax.swing.border.Border;
 
 public class Window extends JFrame {
   // Window class GUI elements.
