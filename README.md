@@ -31,23 +31,38 @@ This project is an in-place sorting algorithm visualizer implemented in Java usi
 To incorporate your own in-place sorting algorithm into the visualizer, follow these steps:
 
 1. **Implement Algorithm Code:**
-   Add the implementation of your sorting algorithm in the `Algorithms.java` file, taking an array as the input parameter.
+   First, add the implementation of your sorting algorithm method in the `Algorithms.java` file, taking an array as the input parameter.
 
 2. **Update Enum:**
    Include the name of your algorithm in the `sortingAlgorithms` enum located in the `Algorithms.java` class file.
 
-3. **Modify InputPanel:**
+   ```java
+    // Here we added InsertionSort as an example
+    public enum sortingAlgorithms{
+        BubbleSort,
+        QuickSort,
+        InsertionSort
+    };
+   ```
+
+4. **Modify InputPanel:**
    Update the `getAlgorithmSelected()` method in the `InputPanel.java` file to include the case for selecting your algorithm.
 
-4. **Execute Algorithm Branch:**
+   ```java
+   case "InsertionSort": // Make sure they are the same as the enum declaration
+      sortingAlgorithm = Algorithms.sortingAlgorithms.InsertionSort; 
+      break;
+   ```
+
+6. **Execute Algorithm Branch:**
    Add a branch in the `startAlgorithm()` method within the `VisualizerPanel.java` file to execute your sorting algorithm.
 
    ```java
-   if (algorithmToUse.equals(Algorithms.sortingAlgorithms.BubbleSort)) { // Replace "BubbleSort" with the name of the algorithm you added in the enum here
+   if (algorithmToUse.equals(Algorithms.sortingAlgorithms.InsertionSort)) { // Replace "InsertionSort" with the name of the algorithm you added in the enum here
       SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
         @Override
         protected Void doInBackground() throws Exception {
-          algs.bubbleSort(visualizerArray); // Replace "BubbleSort" with the name of the algorithm you added here too
+          algs.insertionSort(visualizerArray); // Replace "insertionSort" method with the method name for the algorithm you added in Algorithms.java
           return null;
         }
       };
